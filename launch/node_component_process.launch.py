@@ -28,12 +28,19 @@ def generate_launch_description():
                 ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
             ]
         ),
+        # This definition creates a launch argument with the name 'node_prefix' and gives
+        # it a description of the argument and a default value (the name of the user).
+        # This launch argument can be later used as a substitution wherever this argument 
+        # is called. See the declarations of the Components Definition.
         launch.actions.DeclareLaunchArgument(
             'node_prefix',
             default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
             description='Prefix for node names'),
         
         # Components Definition
+        # The components must be inside a container or a component manager. That way we instantiate
+        # a ComposableNodeContainer where we will stores the components. For more information
+        # look at https://docs.ros.org/en/foxy/Tutorials/Intermediate/Composition.html
         launch_ros.actions.ComposableNodeContainer(
         name='talker_listener_container',
         namespace='',

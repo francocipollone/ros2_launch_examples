@@ -8,14 +8,14 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 #This launch example 
 def generate_launch_description():
 
-    # This variables are defined as launch configuration elements.
+    # These variables are defined as launch configuration elements.
     # This only defines that exist a configuration element with the name:
     # 'turtlesim_ns', 'use_provided_red', 'new_background_r'.
     turtlesim_ns = LaunchConfiguration('turtlesim_ns')
     use_provided_red = LaunchConfiguration('use_provided_red')
     new_background_r = LaunchConfiguration('new_background_r')
 
-    # This variables defines the actual value that the launch configuration 
+    # These variables defines the actual value that the launch configuration 
     # elements will take. Using this is possible to pass arguments to the 
     # launch file in order to substitute the value of an specific variable.
     # On this case: 'turtlesim_ns', 'use_provided_red', 'new_background_r'.
@@ -33,9 +33,9 @@ def generate_launch_description():
     )
 
     # This variable defines a Node that is going to be run on the launch file.
-    # On ros2 each node is able to declare their own parameters, that way, a
-    # specific parameter is defined for an specific node. On the launch file is
-    # possible to run a Node or Component giving it parameter values as seen on
+    # On ros2 each node is able to declare their own ros2 parameters, that way, a
+    # specific ros2 parameter is defined for an specific node. On the launch file is
+    # possible to run a Node or Component giving it ros2 parameter values as seen on
     # this definition.
     turtlesim_node = Node(
         package='turtlesim',
@@ -47,10 +47,10 @@ def generate_launch_description():
                      'background_b': 20}]
     )
 
-    # This variables defines some Process that is going to be run on the launch file.
-    # Think of a process as a console command you would want to do in a specific moment
-    # of the launch file.
-    # On this case, that console command is calling a ros2 service to create a turtle on a specific
+    # These variables defines some Process that is going to be run on the launch file.
+    # Think of a process as a console command you would want to do in a when running
+    # the launch file. 
+    # On this case, that console command is calling a ros2 service to spawn a turtle on a specific
     # location.
     spawn_turtle = ExecuteProcess(
         cmd=[[
@@ -95,6 +95,11 @@ def generate_launch_description():
         shell=True
     )
 
+    timer_action = TimerAction(
+            period=2.0,
+            actions=[change_background_r_conditioned],
+    )
+
     # Return a LaunchDescription. This class takes as arguments a list of elements.
     # On this case, all the elements were defined previously and stored in variables and then
     # those variables become the list elements, this is another way to do it instead of just plugging
@@ -106,8 +111,5 @@ def generate_launch_description():
         turtlesim_node,
         spawn_turtle,
         change_background_r,
-        TimerAction(
-            period=2.0,
-            actions=[change_background_r_conditioned],
-        )
+        timer_action
     ])

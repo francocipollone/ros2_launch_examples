@@ -10,15 +10,16 @@ def generate_launch_description():
     colors = {
         'background_r': '200'
     }
-    # Return a LaunchDescription. This class takes as arguments a list of elements,
-    # this elements are launch items such as arguments, actions, nodes, components, etc.
-    return LaunchDescription([
+
+    #Creates a LaunchDescription with the elements to be launched as a list.
+    launch_description = LaunchDescription([
         # Using the following classes, the parent launch file will look for the 
         # 'substitution_argument_parameter.launch.py' file and launch it with it's
         # corresponding arguments.
         IncludeLaunchDescription(
-            # Using the following classes, will look inside the 'ros2_launch_examples' package 
-            # for the 'substitution_argument_parameter.launch.py' file and launch it.
+            # Using the following classes, will look inside the installed shared folder from
+            # 'ros2_launch_examples' package for the 'substitution_argument_parameter.launch.py'
+            # file and launch it.
             PythonLaunchDescriptionSource([
                 PathJoinSubstitution([
                     FindPackageShare('ros2_launch_examples'),
@@ -26,8 +27,8 @@ def generate_launch_description():
                     'substitution_argument_parameter.launch.py'
                 ])
             ]),
-            # This variable will store the arguments with which the 
-            # 'substitution_argument_parameter.launch.py' file will be launched.
+            #`launch_arguments` is a dictionary of launch arguments to be passed on to the 
+            # included launch file. The dictionary is passed as a view object.
             launch_arguments={
                 'turtlesim_ns': 'turtlesim2',
                 'use_provided_red': 'True',
@@ -45,3 +46,8 @@ def generate_launch_description():
                 ])
             ]))
     ])
+
+    # Return a LaunchDescription. This class takes as arguments a list of elements,
+    # these elements are launch items such as arguments, actions, nodes, components, etc.
+    return launch_description
+        
