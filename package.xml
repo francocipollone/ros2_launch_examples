@@ -10,6 +10,7 @@
   <maintainer email="franco.c@ekumenlabs.com">Franco Cipollone</maintainer>
   <license>LICENSE</license>
 
+  <exec_depend>turtlesim</exec_depend>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 

@@ -5,7 +5,6 @@ from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
 from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration, PythonExpression
 
-#This launch example 
 def generate_launch_description():
 
     # These variables are defined as launch configuration elements.
@@ -36,7 +35,9 @@ def generate_launch_description():
     # On ros2 each node is able to declare their own ros2 parameters, that way, a
     # specific ros2 parameter is defined for an specific node. On the launch file is
     # possible to run a Node or Component giving it ros2 parameter values as seen on
-    # this definition.
+    # this definition. Also notice on this case we are using the variable created before
+    # in order to pass the argument of the namespace instead of just plugging the
+    # LaunchConfiguration('turtlesim_ns') object to the namespace variable.
     turtlesim_node = Node(
         package='turtlesim',
         namespace=turtlesim_ns,
