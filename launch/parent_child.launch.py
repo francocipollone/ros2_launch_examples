@@ -33,5 +33,15 @@ def generate_launch_description():
                 'use_provided_red': 'True',
                 'new_background_r': TextSubstitution(text=str(colors['background_r']))
             }.items()
-        )
+        ),
+        IncludeLaunchDescription(
+            # Using the following classes, will look inside the 'ros2_launch_examples' package 
+            # for the 'substitution_argument_parameter.launch.py' file and launch it.
+            PythonLaunchDescriptionSource([
+                PathJoinSubstitution([
+                    FindPackageShare('ros2_launch_examples'),
+                    'launch',
+                    'node_component_process.launch.py'
+                ])
+            ]))
     ])
