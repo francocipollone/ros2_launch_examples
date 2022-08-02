@@ -162,4 +162,4 @@ def generate_launch_description():
 
 ## Examples
 
-- Launch file for executing rosbag process: See [execute_rosbag_py](execute_rosbag_py/README.md) package.
+- Launch file for executing rosbag process: See [ros2_launch_examples](launch/README.md) package.

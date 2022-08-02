@@ -3,7 +3,7 @@ import os
 
 from setuptools import setup
 
-package_name = 'execute_rosbag_py'
+package_name = 'ros2_launch_examples'
 
 setup(
     name=package_name,
@@ -37,7 +37,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'talker = execute_rosbag_py.talker:main',
+            'talker = ros2_launch_examples.talker:main',
         ],
     },
 )

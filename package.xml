@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
-  <name>execute_rosbag_py</name>
+  <name>ros2_launch_examples</name>
   <version>0.0.1</version>
   <description>
     Launch file example for executing rosbag process.
@@ -10,6 +10,7 @@
   <maintainer email="franco.c@ekumenlabs.com">Franco Cipollone</maintainer>
   <license>LICENSE</license>
 
+  <exec_depend>turtlesim</exec_depend>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 
