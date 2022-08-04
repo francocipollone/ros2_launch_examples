@@ -1,0 +1,21 @@
+# The usual format of the yaml file would be something like this:
+#cam2image:
+#  ros__parameters:
+#    burger_mode: True 
+#    height: 300
+#    width: 200
+
+#showimage:
+#  ros__parameters:
+#    depth: 1
+#    history: keep_last
+
+# This yaml format does not works when configuring the parameters in a
+# launch file. This is a bug that is solved in Galactic and onwards and
+# have not being backported to Foxy. The workaround is to use the following format:
+
+burger_mode: True 
+height: 300
+width: 200
+depth: 1
+history: keep_last
