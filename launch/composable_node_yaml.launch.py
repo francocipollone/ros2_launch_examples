@@ -10,7 +10,7 @@ def generate_launch_description():
 
     # This variable obtains the path of the yaml file that have the parameter configuration.
     # In order for this to work, the yaml file must be installed into the share folder of 
-    # the package, check the setup.py file lines 18-19.
+    # the package, check the setup.py file on the data files section.
     config = os.path.join(
         get_package_share_directory('ros2_launch_examples'),
         'config',
