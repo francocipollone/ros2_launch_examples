@@ -12,7 +12,8 @@
 
 # This yaml format does not works when configuring the parameters in a
 # launch file. This is a bug that is solved in Galactic and onwards and
-# have not being backported to Foxy. The workaround is to use the following format:
+# have not being backported to Foxy (https://github.com/ros2/launch_ros/pull/259).
+# The workaround is to use the following format:
 
 burger_mode: True 
 height: 300
