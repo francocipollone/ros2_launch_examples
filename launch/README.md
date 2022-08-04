@@ -84,3 +84,13 @@ Run ros2 launch.
 ```sh
 ros2 launch ros2_launch_examples parent_child.launch.py
 ```
+
+## composable_node_yaml.launch.py
+Launch file with composable nodes with parameters configured via a YAML file.
+### Try it out
+Run ros2 launch.
+```sh
+ros2 launch ros2_launch_examples composable_node_yaml.launch.py
+```
+
+### Note: Check all the launch files for the code explanation. 
